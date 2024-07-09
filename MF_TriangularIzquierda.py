@@ -2,6 +2,8 @@
 # X = Punto de evaluación.
 # a = Vértice izquierdo de la función triangular.
 # b = Vértice derecho de la función triangular.
+# min_universo = Valor mínimo del conjunto universo.
+# max_universo = Valor máximo del conjunto universo.
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,20 +16,32 @@ def MF_triangularIzquierda(X, a, b):
     else:
         return 0
 
-# Función para solicitar los valores de a y b para generar su gráfica correspondiente:
+# Función para solicitar los valores de a, b y el rango del conjunto universo:
 def ltMF_main():
-    a = float(input("Ingrese el valor de a: "))
-    b = float(input("Ingrese el valor de b: "))
-    plot_MF_triangularIzquierda(a, b)
+    while True:
+        a = float(input("Ingrese el valor de a: "))
+        b = float(input("Ingrese el valor de b: "))
+        if a < b:
+            break
+        else:
+            print("Error: El valor de a debe ser menor que b. Por favor, ingrese los valores nuevamente.")
+
+    while True:
+        min_universo = float(input("Ingrese el valor mínimo del conjunto universo: "))
+        max_universo = float(input("Ingrese el valor máximo del conjunto universo: "))
+        if min_universo < max_universo:
+            break
+        else:
+            print("Error: El valor mínimo del conjunto universo debe ser menor al valor máximo. Por favor, ingrese los valores nuevamente.")
+
+    plot_MF_triangularIzquierda(a, b, min_universo, max_universo)
 
 # Función para graficar la MF:
-def plot_MF_triangularIzquierda(a, b):
-    X_values = np.linspace(a - 100, b + 100, 500)
-    MF_values = [MF_triangularIzquierda(X, a, b) for X in X_values]
-
-    # Generación de los puntos adicionales para los vértices clave:
+def plot_MF_triangularIzquierda(a, b, min_universo, max_universo):
+    X_values = np.linspace(min_universo, max_universo, 500)
     X_values = np.concatenate(([a, b], X_values))
     X_values = np.sort(X_values)
+
     MF_values = [MF_triangularIzquierda(X, a, b) for X in X_values]
 
     plt.figure(figsize=(10, 6))
@@ -39,5 +53,5 @@ def plot_MF_triangularIzquierda(a, b):
     plt.legend()
     plt.grid(True)
     plt.ylim(-0.1, 1.1)
-    plt.xlim(a - 5, b + 5)
+    plt.xlim(min_universo, max_universo)
     plt.show()
