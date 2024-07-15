@@ -6,6 +6,7 @@ from MF_Gaussiana import agMF_main
 from MF_GaussianaDerecha import rgMF_main
 from MF_Trapezoidal import tpMF_main
 from MF_EscalonUnitario import stMF_main
+from MF_CampanaGeneralizada import gbMF_main
 
 def menu():
     print("Funciones de membresía (MF) disponibles:")
@@ -41,8 +42,8 @@ def main():
             tpMF_main()
         elif opcion == '8':
             stMF_main()
-       # elif opcion == '9':
-            #rtMF_main()
+        elif opcion == '9':
+            gbMF_main()
         elif opcion == '10':
             print("Saliendo del programa...")
             break
