@@ -36,6 +36,5 @@ def plot_MF_generalizedBell(c, a, b, min_universo, max_universo):
     plt.ylim(-0.1, 1.1)
     plt.xlim(min_universo, max_universo)
     plt.show()
-
-# Ejecutar la función principal para solicitar valores y graficar
-gbMF_main()
+    
+#gbMF_main()
