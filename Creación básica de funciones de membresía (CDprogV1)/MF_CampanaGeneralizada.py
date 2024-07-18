@@ -1,3 +1,11 @@
+# Función para evaluar una MF campana generalizada:
+# X = Punto de evaluación.
+# a = Valor del ancho.
+# b = Valor del parámetro de forma.
+# c = Valor del centro.
+# min_universo = Valor mínimo del conjunto universo.
+# max_universo = Valor máximo del conjunto universo.
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -6,7 +14,7 @@ def MF_generalizedBell(X, c, a, b):
 
 # Función para solicitar los valores de c, a, b y el rango del conjunto universo:
 def gbMF_main():
-    c = float(input("Ingrese el valor del centro (c): "))
+    c = float(input("Ingrese el valor del centro: "))
     a = float(input("Ingrese el valor del ancho (a): "))
     b = float(input("Ingrese el valor del parámetro de forma (b): "))
 
@@ -36,5 +44,3 @@ def plot_MF_generalizedBell(c, a, b, min_universo, max_universo):
     plt.ylim(-0.1, 1.1)
     plt.xlim(min_universo, max_universo)
     plt.show()
-    
-#gbMF_main()
