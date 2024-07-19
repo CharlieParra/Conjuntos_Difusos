@@ -7,6 +7,7 @@ from MF_GaussianaDerecha import rgMF_main
 from MF_Trapezoidal import tpMF_main
 from MF_EscalonUnitario import stMF_main
 from MF_CampanaGeneralizada import gbMF_main
+from MF_IzquierdaDerecha import lrMF_main
 
 def menu():
     print("Funciones de membresía (MF) disponibles:")
@@ -19,7 +20,8 @@ def menu():
     print("7. MF Trapezoidal.")
     print("8. MF Escalón Unitario.")
     print("9. MF Campana generalizada.")
-    print("10. Salir")
+    print("10. MF Izquierda-Derecha.")
+    print("11. Salir")
 
 def main():
     while True:
@@ -45,9 +47,11 @@ def main():
         elif opcion == '9':
             gbMF_main()
         elif opcion == '10':
+            lrMF_main()
+        elif opcion == '11':
             print("Saliendo del programa...")
             break
         else:
-            print("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
+            print("Opción no válida. Por favor, seleccione una opción del 1 al 11.")
 
 main()
