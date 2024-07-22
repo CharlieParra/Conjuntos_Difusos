@@ -9,7 +9,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def MF_triangular(X, a, b, c, puntos):
+def MF_triangular(X, a, b, c):
     if X <= a:
         return 0
     elif a < X <= b:
