@@ -247,7 +247,9 @@ def graficar():
 
 # Función para mostrar el menú principal al usuario:
 def menu():
+    print()
     print("Funciones de membresía (MF) disponibles:")
+    print()
     print("1. MF Triangular.")
     print("2. MF Triangular Izquierda.")
     print("3. MF Triangular Derecha.")
@@ -259,12 +261,21 @@ def menu():
     print("9. MF Cauchy.")
     print("10. MF Izquierda-Derecha.")
     print("11. Salir del programa.")
+    print()
+    
+# Función para mostrar el menú de operaciones al usuario:
+def operaciones():
+    print("Operaciones disponibles:")
+    print("1. Negación.")
+    print("2. Unión.")
+    print("3. Intersección.")
 
 # Función principal del programa:
 def main():
     while True:
         menu()
         opcion = input("Seleccione la MF que desea utilizar: ")
+        print()
 
         if opcion == '1':
             resultados.append(tnMF_main(auto = 0, A = 1, B = 2, C = 3, retorno = 1, puntos = 500))
