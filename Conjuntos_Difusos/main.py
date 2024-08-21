@@ -10,6 +10,7 @@ from MF_Trapezoidal import plot_MF_trapezoidal
 from MF_EscalonUnitario import plot_MF_escalonUnitario
 from MF_CampanaGeneralizada import plot_MF_generalizedBell
 from MF_IzquierdaDerecha import plot_MF_leftRight
+from MF_Sigmoidea import plot_MF_sigmoidal
 
 resultados = []
 colores = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black', 'orange', 'purple', 'brown']
@@ -194,6 +195,17 @@ def lrMF_main(auto, C, A, B, retorno, puntos):
         
     return[10, c, alpha, beta, puntos]
 
+# Función para solicitar los valores de a, c y el rango del conjunto universo
+def sigMF_main(auto, A, C, retorno, puntos):
+    if not auto:
+        a = float(input("Ingrese el valor de la pendiente (a): "))
+        c = float(input("Ingrese el valor del punto de inflexión (c): "))
+    else:
+        a = A
+        c = C
+        
+    return[11, a, c, puntos]
+
 # Función para graficar todas las funciones de membresía una vez hayan sido ingresadas:
 def graficar():
     while True:
@@ -230,6 +242,8 @@ def graficar():
             plot_MF_generalizedBell(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
         elif operacion[0] == 10:
             plot_MF_leftRight(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
+        elif operacion[0] == 11:
+            plot_MF_sigmoidal(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
 
         color_index += 1
         
@@ -260,7 +274,18 @@ def menu():
     print("8. MF Escalón Unitario.")
     print("9. MF Cauchy.")
     print("10. MF Izquierda-Derecha.")
-    print("11. Salir del programa.")
+    print("11. MF Sigmoidea.")
+    print("12. Salir del programa.")
+    print()
+    
+# Función para mostrar el menú secundario al usuario:
+def menu2():
+    print()
+    print("¿Desea realizar alguna operación con las funciones añadidas o graficarlas directamente?")
+    print()
+    print("1. Ingresar al menú de operaciones.")
+    print("2. Graficar y salir.")
+    print("3. Regresar al menú de funciones de membresía.")
     print()
     
 # Función para mostrar el menú de operaciones al usuario:
@@ -298,12 +323,28 @@ def main():
         elif opcion == '10':
             resultados.append(lrMF_main(auto = 0, C = 25, A = 10, B = 40, retorno = 1, puntos = 500))
         elif opcion == '11':
+            resultados.append(sigMF_main(auto = 0, A = 5, C = 1, retorno = 1, puntos = 500))
+        elif opcion == '12':
             if resultados:
                 print(resultados)
-                graficar() 
+                menu2()
+                opcion = input("Seleccione la opción que desea ejecutar: ")
+                print()
+                
+                if opcion == '1':
+                    operaciones()
+                    opcion = input("Seleccione la operación que desea realizar: ")
+                    print()
+                    
+                elif opcion == '2':
+                    graficar()
+                elif opcion == '3':
+                    main()
+                else:
+                    print("Opción no válida. Por favor, seleccione una opción del 1 al 3.")
             break
         else:
-            print("Opción no válida. Por favor, seleccione una opción del 1 al 11.")
+            print("Opción no válida. Por favor, seleccione una opción del 1 al 12.")
 
 # Ejecución del programa:
 main()
