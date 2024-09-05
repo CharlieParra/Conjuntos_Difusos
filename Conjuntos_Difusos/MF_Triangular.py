@@ -20,22 +20,17 @@ def MF_triangular(X, a, b, c):
         return 0
 
 # Función para graficar la MF:
-def plot_MF_triangular(a, b, c, min_universo, max_universo, puntos, color):
+def plot_MF_triangular(a, b, c, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     X_values = np.concatenate(([a, b, c], X_values))
     X_values = np.sort(X_values)
 
     MF_values = [MF_triangular(X, a, b, c) for X in X_values]
 
-    # plt.figure(figsize=(10, 6))
-    # plt.plot(X_values, MF_values, label=f'Triangular Membership Function (a={a}, b={b}, c={c})', color='blue')
-    plt.plot(X_values, MF_values, label=f'Triangular Membership Function (a={a}, b={b}, c={c})', color=color)
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Triangular Negada (a={a}, b={b}, c={c})'
+    else:
+        label = f'Triangular (a={a}, b={b}, c={c})'
 
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Triangular Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
