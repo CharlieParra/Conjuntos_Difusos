@@ -16,18 +16,14 @@ def MF_gaussianaAsimetrica(X, mid, Lsigma, Rsigma):
         return np.exp(-0.5 * ((X - mid) / Rsigma) ** 2)
 
 # Función para graficar la MF:
-def plot_MF_gaussianaAsimetrica(mid, Lsigma, Rsigma, min_universo, max_universo, puntos, color):
+def plot_MF_gaussianaAsimetrica(mid, Lsigma, Rsigma, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     MF_values = [MF_gaussianaAsimetrica(X, mid, Lsigma, Rsigma) for X in X_values]
+    
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Gaussiana Negada (mid={mid}, Lsigma={Lsigma}, Rsigma={Rsigma})'
+    else:
+        label = f'Gaussiana (mid={mid}, Lsigma={Lsigma}, Rsigma={Rsigma})'
 
-    # plt.figure(figsize=(10, 6))
-    plt.plot(X_values, MF_values, label=f'Asymmetric Gaussian MF (mid={mid}, Lsigma={Lsigma}, Rsigma={Rsigma})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Asymmetric Gaussian Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
