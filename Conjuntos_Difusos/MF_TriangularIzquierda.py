@@ -17,22 +17,17 @@ def MF_triangularIzquierda(X, a, b):
         return 0
     
 # Función para graficar la MF: 
-def plot_MF_triangularIzquierda(a, b, min_universo, max_universo, puntos, color):
+def plot_MF_triangularIzquierda(a, b, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     X_values = np.concatenate(([a, b], X_values))
     X_values = np.sort(X_values)
 
     MF_values = [MF_triangularIzquierda(X, a, b) for X in X_values]
 
-    # plt.figure(figsize=(10, 6))
-    # plt.plot(X_values, MF_values, label=f'Triangular Membership Function (a={a}, b={b})', color='blue')
-    plt.plot(X_values, MF_values, label=f'Triangular Membership Function (a={a}, b={b})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Left Triangular Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Triangular Negada (a={a}, b={b})'
+    else:
+        label = f'Triangular (a={a}, b={b})'
+    
+    plt.plot(X_values, MF_values, label=label, color=color)
