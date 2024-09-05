@@ -15,21 +15,17 @@ def MF_gaussianaIzquierda(X, mid, sigma):
         return np.exp(-0.5 * ((X - mid) / sigma) ** 2)
 
 # Función para graficar la MF:
-def plot_MF_gaussianaIzquierda(mid, sigma, min_universo, max_universo, puntos, color):
+def plot_MF_gaussianaIzquierda(mid, sigma, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     X_values = np.concatenate(([mid], X_values))
     X_values = np.sort(X_values)
 
     MF_values = [MF_gaussianaIzquierda(X, mid, sigma) for X in X_values]
+    
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Gaussiana Negada (mid={mid}, sigma={sigma})'
+    else:
+        label = f'Gaussiana (mid={mid}, sigma={sigma})'
 
-    # plt.figure(figsize=(10, 6))
-    plt.plot(X_values, MF_values, label=f'Left Gaussian Membership Function (mid={mid}, sigma={sigma})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Left Gaussian Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
