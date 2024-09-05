@@ -23,18 +23,14 @@ def MF_trapezoidal(X, a, b, c, d):
         return 0
 
 # Función para graficar la MF:
-def plot_MF_trapezoidal(a, b, c, d, min_universo, max_universo, puntos, color):
+def plot_MF_trapezoidal(a, b, c, d, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     MF_values = [MF_trapezoidal(X, a, b, c, d) for X in X_values]
+    
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Trapezoidal Negada (a={a}, b={b}, c={c}, d={d})'
+    else:
+        label = f'Trapezoidal (a={a}, b={b}, c={c}, d={d})'
 
-    # plt.figure(figsize=(10, 6))
-    plt.plot(X_values, MF_values, label=f'Trapezoidal Membership Function (a={a}, b={b}, c={c}, d={d})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Trapezoidal Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
