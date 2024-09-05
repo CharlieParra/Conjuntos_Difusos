@@ -18,18 +18,14 @@ def MF_leftRight(X, c, alpha, beta):
         return max(0, np.sqrt(1 - x2**2))
 
 # Función para graficar la MF:
-def plot_MF_leftRight(c, alpha, beta, min_universo, max_universo, puntos, color):
+def plot_MF_leftRight(c, alpha, beta, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     MF_values = [MF_leftRight(X, c, alpha, beta) for X in X_values]
+    
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'LR Negada (alpha={alpha}, beta={beta}, c={c})'
+    else:
+        label = f'LR (alpha={alpha}, beta={beta}, c={c})'
 
-    # plt.figure(figsize=(10, 6))
-    plt.plot(X_values, MF_values, label=f'Triangular Membership Function (alpha={alpha}, beta={beta}, c={c})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Left-Right Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
