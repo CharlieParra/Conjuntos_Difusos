@@ -10,7 +10,7 @@ from MF_Trapezoidal import plot_MF_trapezoidal
 from MF_EscalonUnitario import plot_MF_escalonUnitario
 from MF_CampanaGeneralizada import plot_MF_generalizedBell
 from MF_IzquierdaDerecha import plot_MF_leftRight
-from MF_Sigmoidea import plot_MF_sigmoidal
+from MF_Sigmoide import plot_MF_sigmoidal
 
 resultados = []
 colores = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black', 'orange', 'purple', 'brown']
@@ -32,7 +32,7 @@ def tnMF_main(auto, A, B, C, retorno, puntos):
         else:
             print("Error: El valor de a debe ser menor que b y el valor de b debe ser menor que c. Por favor, ingrese los valores nuevamente.")
 
-    return [1, a, b, c, puntos]
+    return [1, a, b, c, puntos, 0]
 
 # Función para solicitar los valores de a, b de la función triangular izquierda:
 def ltMF_main(auto, A, B, retorno, puntos):
@@ -49,7 +49,7 @@ def ltMF_main(auto, A, B, retorno, puntos):
         else:
             print("Error: El valor de a debe ser menor que b. Por favor, ingrese los valores nuevamente.")
         
-    return[2, a, b, puntos]
+    return[2, a, b, puntos, 0]
 
 # Función para solicitar los valores de a, b de la función triangular derecha:
 def rtMF_main(auto, A, B, retorno, puntos):
@@ -66,7 +66,7 @@ def rtMF_main(auto, A, B, retorno, puntos):
         else:
             print("Error: El valor de a debe ser menor que b. Por favor, ingrese los valores nuevamente.")
 
-    return[3, a, b, puntos]
+    return[3, a, b, puntos, 0]
 
 # Función para solicitar los valores de mid, Lsigma y Rsigma de la función gaussiana:
 def agMF_main(auto, M, LS, RS, retorno, puntos):
@@ -97,7 +97,7 @@ def agMF_main(auto, M, LS, RS, retorno, puntos):
         else:
             print("Error: El valor de sigma debe ser mayor a cero. Por favor, ingrese el valor nuevamente.")
             
-    return[4, mid, Lsigma, Rsigma, puntos]
+    return[4, mid, Lsigma, Rsigma, puntos, 0]
 
 # Función para solicitar los valores de mid y sigma de la función gaussiana izquierda:
 def lgMF_main(auto, M, S, retorno, puntos):
@@ -117,7 +117,7 @@ def lgMF_main(auto, M, S, retorno, puntos):
         else:
             print("Error: El valor de sigma debe ser mayor a cero. Por favor, ingrese el valor nuevamente.")
             
-    return[5, mid, sigma, puntos]
+    return[5, mid, sigma, puntos, 0]
 
 # Función para solicitar los valores de mid y sigma de la función gaussiana derecha:
 def rgMF_main(auto, M, S, retorno, puntos):
@@ -137,7 +137,7 @@ def rgMF_main(auto, M, S, retorno, puntos):
         else:
             print("Error: El valor de sigma debe ser mayor a cero. Por favor, ingrese el valor nuevamente.")
             
-    return[6, mid, sigma, puntos]
+    return[6, mid, sigma, puntos, 0]
 
 # Función para solicitar los valores de a, b, c, d de la función trapezoidal:
 def tpMF_main(auto, A, B, C, D, retorno, puntos):
@@ -158,7 +158,7 @@ def tpMF_main(auto, A, B, C, D, retorno, puntos):
         else:
             print("Error: Los valores deben cumplir con la condición a < b < c < d. Por favor, ingrese los valores nuevamente.")
             
-    return[7, a, b, c, d, puntos]
+    return[7, a, b, c, d, puntos, 0]
 
 # Función para solicitar el valor de a y el rango del conjunto universo:
 def stMF_main(auto, A, retorno, puntos):
@@ -167,7 +167,7 @@ def stMF_main(auto, A, retorno, puntos):
     else:
         a = A
         
-    return[8, a, puntos]
+    return[8, a, puntos, 0]
 
 # Función para solicitar los valores de c, a, b y el rango del conjunto universo:
 def gbMF_main(auto, C, A, B, retorno, puntos):
@@ -180,7 +180,7 @@ def gbMF_main(auto, C, A, B, retorno, puntos):
         a = A
         b = B
     
-    return[9, c, a, b, puntos]
+    return[9, c, a, b, puntos, 0]
 
 # Función para solicitar los valores de c, a, b y el rango del conjunto universo:
 def lrMF_main(auto, C, A, B, retorno, puntos):
@@ -193,7 +193,7 @@ def lrMF_main(auto, C, A, B, retorno, puntos):
         alpha = A
         beta = B
         
-    return[10, c, alpha, beta, puntos]
+    return[10, c, alpha, beta, puntos, 0]
 
 # Función para solicitar los valores de a, c y el rango del conjunto universo
 def sigMF_main(auto, A, C, retorno, puntos):
@@ -204,7 +204,7 @@ def sigMF_main(auto, A, C, retorno, puntos):
         a = A
         c = C
         
-    return[11, a, c, puntos]
+    return[11, a, c, puntos, 0]
 
 # Función para graficar todas las funciones de membresía una vez hayan sido ingresadas:
 def graficar():
@@ -223,27 +223,27 @@ def graficar():
     for operacion in resultados:
         color = colores[color_index % len(colores)]
         if operacion[0] == 1:
-            plot_MF_triangular(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
+            plot_MF_triangular(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color, operacion[5])
         elif operacion[0] == 2:
-            plot_MF_triangularIzquierda(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
+            plot_MF_triangularIzquierda(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color, operacion[4])
         elif operacion[0] == 3:
-            plot_MF_triangularDerecha(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
+            plot_MF_triangularDerecha(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color, operacion[4])
         elif operacion[0] == 4:
-            plot_MF_gaussianaAsimetrica(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
+            plot_MF_gaussianaAsimetrica(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color, operacion[5])
         elif operacion[0] == 5:
-            plot_MF_gaussianaIzquierda(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
+            plot_MF_gaussianaIzquierda(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color, operacion[4])
         elif operacion[0] == 6:
-            plot_MF_gaussianaDerecha(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
+            plot_MF_gaussianaDerecha(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color, operacion[4])
         elif operacion[0] == 7:
-            plot_MF_trapezoidal(operacion[1], operacion[2], operacion[3], operacion[4], min_universo, max_universo, operacion[5], color)
+            plot_MF_trapezoidal(operacion[1], operacion[2], operacion[3], operacion[4], min_universo, max_universo, operacion[5], color, operacion[6])
         elif operacion[0] == 8:
-            plot_MF_escalonUnitario(operacion[1], min_universo, max_universo, operacion[2], color)
+            plot_MF_escalonUnitario(operacion[1], min_universo, max_universo, operacion[2], color, operacion[3])
         elif operacion[0] == 9:
-            plot_MF_generalizedBell(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
+            plot_MF_generalizedBell(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color, operacion[5])
         elif operacion[0] == 10:
-            plot_MF_leftRight(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color)
+            plot_MF_leftRight(operacion[1], operacion[2], operacion[3], min_universo, max_universo, operacion[4], color, operacion[5])
         elif operacion[0] == 11:
-            plot_MF_sigmoidal(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color)
+            plot_MF_sigmoidal(operacion[1], operacion[2], min_universo, max_universo, operacion[3], color, operacion[4])
 
         color_index += 1
         
@@ -274,26 +274,16 @@ def menu():
     print("8. MF Escalón Unitario.")
     print("9. MF Cauchy.")
     print("10. MF Izquierda-Derecha.")
-    print("11. MF Sigmoidea.")
+    print("11. MF Sigmoide.")
     print("12. Salir del programa.")
     print()
     
-# Función para mostrar el menú secundario al usuario:
-def menu2():
-    print()
-    print("¿Desea realizar alguna operación con las funciones añadidas o graficarlas directamente?")
-    print()
-    print("1. Ingresar al menú de operaciones.")
-    print("2. Graficar y salir.")
-    print("3. Regresar al menú de funciones de membresía.")
-    print()
-    
 # Función para mostrar el menú de operaciones al usuario:
-def operaciones():
+def operaciones_menu():
     print("Operaciones disponibles:")
-    print("1. Negación.")
-    print("2. Unión.")
-    print("3. Intersección.")
+    print("1. Graficar funciones de membresía.")
+    print("2. Negación de una función de membresía.")
+    print("3. Salir sin graficar.")
 
 # Función principal del programa:
 def main():
@@ -325,26 +315,42 @@ def main():
         elif opcion == '11':
             resultados.append(sigMF_main(auto = 0, A = 5, C = 1, retorno = 1, puntos = 500))
         elif opcion == '12':
-            if resultados:
-                print(resultados)
-                menu2()
-                opcion = input("Seleccione la opción que desea ejecutar: ")
-                print()
-                
-                if opcion == '1':
-                    operaciones()
-                    opcion = input("Seleccione la operación que desea realizar: ")
-                    print()
-                    
-                elif opcion == '2':
+            print(resultados)
+            while True:
+                operaciones_menu()
+                operacion = input("Seleccione la operación que desea realizar: ")
+
+                if operacion == '1':
                     graficar()
-                elif opcion == '3':
-                    main()
+                    break
+                elif operacion == '2':
+                    if not resultados:
+                        print("No hay funciones de membresía para negar.")
+                        continue
+
+                    while True:
+                        print("Funciones de membresía disponibles para negar:")
+                        for i, res in enumerate(resultados, start=1):
+                            print(f"{i}. {res}")
+
+                        seleccion = int(input("Seleccione la función de membresía que desea negar: "))
+                        
+                        if 1 <= seleccion <= len(resultados):
+                            if resultados[seleccion - 1][-1] == 1:
+                                resultados[seleccion - 1][-1] = 0
+                            else:
+                                resultados[seleccion - 1][-1] = 1
+                            print("Función de membresía negada.")
+                            break
+                        else:
+                            print("Selección inválida. Intente nuevamente.")
+                elif operacion == '3':
+                    break
                 else:
                     print("Opción no válida. Por favor, seleccione una opción del 1 al 3.")
             break
         else:
-            print("Opción no válida. Por favor, seleccione una opción del 1 al 12.")
-
+            print("Opción no válida. Por favor, seleccione una opción del 1 al 7.")
+            
 # Ejecución del programa:
 main()
