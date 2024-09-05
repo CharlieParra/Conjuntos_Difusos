@@ -13,18 +13,14 @@ def MF_generalizedBell(X, c, a, b):
     return 1 / (1 + abs((X - c) / a) ** (2 * b))
 
 # Función para graficar la MF:
-def plot_MF_generalizedBell(c, a, b, min_universo, max_universo, puntos, color):
+def plot_MF_generalizedBell(c, a, b, min_universo, max_universo, puntos, color, negado):
     X_values = np.linspace(min_universo, max_universo, puntos)
     MF_values = [MF_generalizedBell(X, c, a, b) for X in X_values]
+    
+    if negado == 1:
+        MF_values = [1 - val for val in MF_values]
+        label = f'Cauchy Negada (c={c}, a={a}, b={b})'
+    else:
+        label = f'Cauchy (c={c}, a={a}, b={b})'
 
-    # plt.figure(figsize=(10, 6))
-    plt.plot(X_values, MF_values, label=f'Generalized Bell MF (c={c}, a={a}, b={b})', color=color)
-
-    # plt.xlabel('X')
-    # plt.ylabel('Membership Value')
-    # plt.title('Generalized Bell Membership Function')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.ylim(-0.1, 1.1)
-    # plt.xlim(min_universo, max_universo)
-    # plt.show()
+    plt.plot(X_values, MF_values, label=label, color=color)
