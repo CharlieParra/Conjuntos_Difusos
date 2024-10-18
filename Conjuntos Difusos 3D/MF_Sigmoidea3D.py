@@ -40,6 +40,3 @@ def plot_MF_sigmoid_3D(a, c_x, c_y, min_universo_x, max_universo_x, min_universo
     ax.set_zlabel('Membership Value')
     ax.set_title('Sigmoid Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-sigmoidMF_3D_main()
