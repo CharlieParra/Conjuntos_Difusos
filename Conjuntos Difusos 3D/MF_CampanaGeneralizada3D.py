@@ -41,6 +41,3 @@ def plot_MF_cauchy_3D(a, b, c_x, c_y, min_universo_x, max_universo_x, min_univer
     ax.set_zlabel('Membership Value')
     ax.set_title('Cauchy (Generalized Bell) Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-cauchyMF_3D_main()
