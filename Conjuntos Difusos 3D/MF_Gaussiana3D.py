@@ -40,6 +40,3 @@ def plot_MF_gaussian_3D(c_x, c_y, sigma_x, sigma_y, min_universo_x, max_universo
     ax.set_zlabel('Membership Value')
     ax.set_title('Gaussian Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-gaussianMF_3D_main()
