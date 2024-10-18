@@ -64,6 +64,3 @@ def plot_MF_triangular_3D(a, b, c, d, e, f, min_universo_x, max_universo_x, min_
     ax.set_zlabel('Membership Value')
     ax.set_title('Triangular Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-tnMF_3D_main()
