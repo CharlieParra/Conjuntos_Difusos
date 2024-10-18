@@ -62,6 +62,3 @@ def plot_MF_trapezoidal_3D(a, b, c, d, min_universo_x, max_universo_x, min_unive
     ax.set_zlabel('Membership Value')
     ax.set_title('Trapezoidal Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-trapezoidalMF_3D_main()
