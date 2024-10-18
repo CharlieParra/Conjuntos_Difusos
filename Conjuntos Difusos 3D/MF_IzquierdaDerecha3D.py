@@ -48,6 +48,3 @@ def plot_MF_leftRight_3D(alpha, beta, c, min_universo_x, max_universo_x, min_uni
     ax.set_zlabel('Membership Value')
     ax.set_title('Left-Right Membership Function in 3D')
     plt.show()
-
-# Llamar la función principal
-leftRightMF_3D_main()
