@@ -572,6 +572,7 @@ def plot_union(MF_values1, MF_values2, min_universo, max_universo, puntos, color
         vector2 = np.interp(X_values, np.linspace(min_universo, max_universo, len(vector2)), vector2)
     
     MF_values = np.maximum(vector1, vector2)
+    calculos.append(MF_values)
     label = 'Unión'
     plt.plot(X_values, MF_values, label=label, color=color)
     
@@ -610,6 +611,7 @@ def plot_interseccion(MF_values1, MF_values2, min_universo, max_universo, puntos
         vector2 = np.interp(X_values, np.linspace(min_universo, max_universo, len(vector2)), vector2)
     
     MF_values = np.minimum(vector1, vector2)
+    calculos.append(MF_values)
     label = 'Intersección'
     plt.plot(X_values, MF_values, label=label, color=color)
 
