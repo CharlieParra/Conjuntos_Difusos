@@ -1,16 +1,16 @@
-# Conjuntos_Difusos
-Se presenta una serie de algoritmos sobre conjuntos difusos realizados en Python, tomando como base los algoritmos presentados en el libro "Fuzzy Control and Identification". Estos algoritmos se encuentran divididos en 4 programas ordenados por su nivel de complejidad, como se explica a continuación:
+# Conjuntos Difusos
+Se presenta una serie de algoritmos sobre conjuntos difusos realizados en Python, tomando como base los algoritmos presentados en el libro "*Fuzzy Control and Identification*". Estos algoritmos se encuentran divididos en 4 programas ordenados por su nivel de complejidad, como se explica a continuación:
 
-1. Creación básica de funciones de membresía: El programa consiste en el despliegue de un menú interactivo que permite seleccionar la función de membresía que se desea representar, junto con los valores correspondientes a ésta y el rango del conjunto universo en el que se generará, para posteriormente mostrarla en una gráfica. Este programa es el más sencillo, ya que introduce las diferentes funciones de membresía, sin operaciones entre ellas y sólo muestra una función de membresía a la vez.
-2. Funciones de membresía tridimensionales: El programa sigue la misma dinámica que la presentada en el anterior, pero utilizando funciones de membresía tridimensionales en su lugar.
-4. Operaciones con funciones de membresía: El programa 
-5. Creación de Conjuntos Difusos: 
+1. **Creación básica de funciones de membresía**: El programa consiste en el despliegue de un menú interactivo que permite seleccionar la función de membresía que se desea representar, junto con los valores correspondientes a ésta y el rango del conjunto universo en el que se generará, para posteriormente mostrarla en una gráfica. Este programa es el más sencillo, ya que introduce las funciones de membresía más comunes (como la MF triangular, trapezoidal, gaussiana, etc.), sin operaciones entre ellas y sólo muestra una función de membresía a la vez.
+2. **Funciones de membresía tridimensionales**: Consiste en una variante del primer programa, el cual presenta la misma dinámica que éste, pero utilizando funciones de membresía tridimensionales en su lugar.
+3. **Operaciones con funciones de membresía**: Es una versión más completa del primer programa. programa permite la creación de diversas funciones de membresía en una sola gráfica, por lo que que la ejecución de este terminará únicamente cuando se hayan agregado todas las funciones de membresía deseadas y se opte por graficarlas. Adicionalmente, se cuenta con la operación de negación para cualquiera de las funciones agregadas. 
+4. **Creación de Conjuntos Difusos**: Se trata del programa completo para la creación y manupulación de funciones de membresía. Este programa, además de permitir la creación de distintas funciones de membresía y la aplicación de la operación de negación a éstas, se incluyen las operaciones de unión e intersección difusa, lo que posibilita la creación de conjuntos difusos.
 
-Asimismo, se incluye una carpeta referente a la documentación realizada con base en el libro "Neuro-Fuzzy and Soft Computing: A Computational Approach to Learning and Machine Intelligence". En ella, se muestran los siguientes archivos realizados con Jupyter Notebook:
-1. Funciones de membresía:
-2. Conjuntos Difusos:
-3. Sistemas de inferencia difusos:
+Asimismo, se incluye una carpeta referente a la documentación realizada con base en el libro "*Neuro-Fuzzy and Soft Computing: A Computational Approach to Learning and Machine Intelligence*". En ella, se muestran los siguientes archivos realizados con Jupyter Notebook:
+1. **Funciones de membresía**: Aquí se habla específicamente de las funciones de membresía más comunes, incluyendo su código correspondiente realizado en Python para facilitar la comprensión de éstas. Se basa en las funciones de membresía básicas presentadas en el apéndice del libro "*Fuzzy Control and Identification*".
+2. **Conjuntos Difusos**: Se brinda una introducción al concepto de lógica difusa y a las funciones de membresía, se explica a detalle la estructura de dichas funciones, así como las operaciones difusas existentes, entre otros temas básicos para comprender de manera general el uso de conjuntos difusos en problemas que requieran estos conocimientos. Se basa en los temas vistos el segundo capítulo del libro "*Neuro-Fuzzy and Soft Computing: A Computational Approach to Learning and Machine Intelligence*".
+3. **Sistemas de inferencia difusos**: Explica acerca de los diferentes métodos para formar sistemas difusos
 
-Bibliografía utilizada:
+## Bibliografía utilizada
 - J.-S. R. Jang, C.-T. Sun, and E. Mizutani, *Neuro-Fuzzy and Soft Computing: A Computational Approach to Learning and Machine Intelligence*, Prentice Hall, 1997.
 - J. H. Lilly, *Fuzzy Control and Identification*, Wiley, 2010.
